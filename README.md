@@ -25,7 +25,7 @@ TODO
 3) Load into the save and have fun with the addon.
 
 ### 🤓 | Advanced
-1) Run `git clone "https://github.com/Cuh4/SWAsteroidsAddon.git" "%appdata%/Stormworks/data/missions"`
+1) Run `git clone "https://github.com/Cuh4/SWAsteroidsAddon.git" "%appdata%/Stormworks/data/missions/SWAsteroidsAddon"`
 2) Optionally, change the addon name in `playlist.xml` to whatever you desire.
 3) Run `py combiner.py` (or run `combiner.bat`) to create a `script.lua` file. Feel free to close it once it has been created.
 4) Create a save with the addon enabled, and have fun with the addon.
