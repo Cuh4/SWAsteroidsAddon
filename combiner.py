@@ -12,7 +12,7 @@ import time
 # // ---- Variables
 # -----------------------------------------
 mainPath = "src"
-outputFile = "script.lua"
+outputFile = "src/script.lua"
 
 __allowedFileExtensions = [".lua"]
 __fileExceptions = ["src/p1_framework/intellisense.lua"]
