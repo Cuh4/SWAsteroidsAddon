@@ -8,7 +8,7 @@
     CREDIT:
         Author: @cuh6_ (Discord)
         GitHub Repository: https://github.com/Cuh4/SWAsteroidsAddon
-        Created: 15/01/2024 (dd/mm/yy)
+        File Created: 15/01/2024 (dd/mm/yy)
 
     ----------------------------
 ]]
