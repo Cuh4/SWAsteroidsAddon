@@ -16,11 +16,6 @@
 -------------------------------
 -- // Main
 -------------------------------
-g_savedata.asteroidsLibrary = {
-    ---@type table<integer, integer>
-    asteroids = {}
-}
-
 asteroidsLibrary = {
     initialize = function()
         -- Periodically spawn asteroids near players
@@ -98,17 +93,9 @@ asteroidsLibrary = {
                 ::continue::
             end
         end)
-
-        -- Despawn asteroids from previous addon loads
-        AuroraFramework.ready:connect(function()
-            for _, asteroid in pairs(g_savedata.asteroidsLibrary.asteroids) do
-                AuroraFramework.services.groupService.despawnGroup(asteroid)
-            end
-        end)
     end,
 
-    ---@type table<integer, ad_asteroids_asteroid>
-    activeAsteroids = {},
+    activeAsteroids = {}, ---@type table<integer, ad_asteroids_asteroid>
 
     ---@param targetPlayer af_services_player_player
     ---@param position SWMatrix
@@ -151,8 +138,8 @@ asteroidsLibrary = {
             id
         )
 
-        -- persist after reloads
-        g_savedata.asteroidsLibrary.asteroids[id] = group.properties.group_id
+        -- despawn the asteroid if the addon reloads
+        disposablesLibrary.groups.dispose(group)
 
         -- return
         return asteroid
@@ -176,8 +163,7 @@ asteroidsLibrary = {
         -- despawn the asteroid
         asteroid.properties.group:despawn()
 
-        -- remove it from addon and savedata
+        -- remove it from addon
         asteroidsLibrary.activeAsteroids[id] = nil
-        g_savedata.asteroidsLibrary.asteroids[id] = nil
     end
 }
