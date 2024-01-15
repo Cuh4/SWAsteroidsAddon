@@ -1,1 +1,1 @@
-py sync.py -sf "src" -d "%appdata%/Stormworks/missions/SWAsteroidsAddon"
+py sync.py -sf "src" -d "%appdata%/Stormworks/data/missions/SWAsteroidsAddon"
