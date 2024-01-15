@@ -17,8 +17,7 @@
 -- // Main
 -------------------------------
 asteroidsLibrary.types = {
-    ---@type table<integer, ad_asteroids_asteroidType>
-    asteroidTypes = {},
+    asteroidTypes = {}, ---@type table<integer, ad_asteroids_asteroidType>
 
     ---@param sizeName string
     ---@param playlist_id integer
