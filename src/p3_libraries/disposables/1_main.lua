@@ -17,6 +17,7 @@
 -- // Variables
 -------------------------------
 g_savedata.disposablesLibrary = {
+    ---@type table<string, table<integer, integer>>
     pendingDisposals = {}
 }
 
