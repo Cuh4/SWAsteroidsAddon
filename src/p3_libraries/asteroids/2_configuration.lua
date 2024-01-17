@@ -21,5 +21,6 @@ asteroidsLibrary.configuration = {
     asteroidDensity = 6,
     despawnDistance = 750, -- meters
     asteroidSpawnTravelDistance = 1000, -- meters
-    asteroidSpawnDistance = 50 -- meters
+    asteroidSpawnDistance = 50, -- meters
+    explodeAsteroidsOnDespawn = true
 }

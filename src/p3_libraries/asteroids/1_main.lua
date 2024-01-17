@@ -160,8 +160,11 @@ asteroidsLibrary = {
             return
         end
 
-        -- despawn the asteroid with an explosion effect
-        server.spawnExplosion(asteroid.properties.position, 1)
+        -- despawn the asteroid with an explosion effect if allowed
+        if asteroidsLibrary.configuration.explodeAsteroidsOnDespawn then
+            server.spawnExplosion(asteroid.properties.position, math.random(50, 350) / 1000)
+        end
+
         asteroid.properties.group:despawn()
 
         -- remove it from addon
