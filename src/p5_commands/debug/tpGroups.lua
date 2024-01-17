@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- [Commands] Debug - To Space
+-- [Commands] Debug - Teleport Groups
 --------------------------------------------------------
 
 --[[
@@ -8,7 +8,7 @@
     CREDIT:
         Author: @cuh6_ (Discord)
         GitHub Repository: https://github.com/Cuh4/SWAsteroidsAddon
-        File Created: 14/01/2024 (dd/mm/yy)
+        File Created: 17/01/2024 (dd/mm/yy)
 
     ----------------------------
 ]]
@@ -16,23 +16,15 @@
 -------------------------------
 -- // Main
 -------------------------------
--- Teleport self to space
+-- Teleport all groups to player
 AuroraFramework.services.commandService.create(function(player, command, args)
     if not addonConfiguration.dev.debugEnabled then
         return
     end
 
-    local pos = player:getPosition()
-    local newPos = pos
-    newPos[14] = 192000
-
     for _, group in pairs(AuroraFramework.services.groupService.getAllGroups()) do
         if not group.properties.addonSpawned then
-            if matrix.distance(group:getPosition(), pos) < 100 then
-                group:teleport(newPos)
-            end
+            group:teleport(player:getPosition())
         end
     end
-
-    player:teleport(newPos)
-end, "tospace", {"ts"})
+end, "groupstoself", {"gts"})
