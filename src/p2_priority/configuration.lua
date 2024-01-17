@@ -27,7 +27,7 @@ addonConfiguration = {
 
         description = {
             short = "An addon that adds asteroids to space.",
-            long = "A high-performance addon that periodically spawns asteroids around players if they are in space."
+            long = "A performant addon that periodically spawns asteroids around players if they are in space."
         }
     }
 }
