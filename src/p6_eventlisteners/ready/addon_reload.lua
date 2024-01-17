@@ -23,5 +23,5 @@ AuroraFramework.ready:connect(function(state)
         return
     end
 
-    helpersLibrary.chat.send(("%s has reloaded. This may fix any issues that you may have encountered before the reload."):format(addonConfiguration.information.addonName))
+    helpersLibrary.chat.send("\"%s\" has reloaded. This may fix any issues that you may have encountered before the reload.", nil, addonConfiguration.information.addonName)
 end)

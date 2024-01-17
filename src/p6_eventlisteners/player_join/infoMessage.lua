@@ -40,7 +40,7 @@ AuroraFramework.services.playerService.events.onJoin:connect(function(player)
         -- Send credit message
         helpersLibrary.chat.send(
             table.concat({
-                ("This server has %s enabled."):format(addonConfiguration.information.addonName),
+                ("This server has the \"%s\" enabled."):format(addonConfiguration.information.addonName),
                 addonConfiguration.information.description.long,
                 "---",
                 ("Required DLCs:\n%s"):format(DLCsBulletList),
