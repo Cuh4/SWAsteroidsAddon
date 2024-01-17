@@ -33,12 +33,17 @@ addonConfiguration = {
         requiredDLCs = {
             {
                 name = "Space",
-                enabled = server.dlcSpace()
+                enabled = AuroraFramework.attributes.SpaceEnabled
             },
 
             -- {
             --     name = "Industrial Frontier",
-            --     enabled = server.dlcArid()
+            --     enabled = AuroraFramework.attributes.AridEnabled
+            -- },
+
+            -- {
+            --     name = "Weapons",
+            --     enabled = AuroraFramework.attributes.WeaponsEnabled
             -- }
         }
     }
