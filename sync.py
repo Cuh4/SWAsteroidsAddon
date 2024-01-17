@@ -105,17 +105,20 @@ while True:
     # wait
     time.sleep(0.1)
     
+    # for later
+    message = ""
+    
     # sync files
     for destination in destinations:
-        copyFiles(
-            syncFolder,
-            destination,
-            exceptions
-        )
+        try:
+            copyFiles(
+                syncFolder,
+                destination,
+                exceptions
+            )
+        except Exception as e:
+            msg = f"Failed to sync due to \"{str(e)}\""
     
     # print message
-    print("\n".join([
-        "===============",
-        f"Synced '{os.path.abspath(syncFolder)}' to:\n{listToBulletList([os.path.abspath(destination) for destination in destinations])}",
-        "==============="
-    ]))
+    msg = f"Synced '{os.path.abspath(syncFolder)}' to:\n{listToBulletList([os.path.abspath(destination) for destination in destinations])}"
+    print(msg, end = "\n\n")
