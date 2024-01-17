@@ -1038,7 +1038,14 @@ AuroraFramework.services.debuggerService.attach = function(func, logger, customH
 		end
 
 		-- send debug message
-		attachedFunction.properties.logger:send(("%s() was called. | Usage Count: %s | Took: %s ms, AVG: %s ms | Returned: %s"):format(attachedFunction.properties.name, attachedFunction.properties.functionUsageCount, executionTime, averageExecutionTime, tostring(returned)))
+		attachedFunction.properties.logger:send(
+			"%s() was called. | Usage Count: %s | Took: %s ms, AVG: %s ms | Returned: %s", 
+			attachedFunction.properties.name,
+			attachedFunction.properties.functionUsageCount,
+			executionTime,
+			averageExecutionTime,
+			tostring(returned)
+		)
 
 		-- fire event
 		attachedFunction.events.functionCall:fire(attachedFunction, returned, ...)
@@ -1091,9 +1098,11 @@ AuroraFramework.services.debuggerService.createLogger = function(name, shouldSen
 						message
 					)
 				else
-					message = ("%s %s"):format(
-						self.properties.formattedName,
-						message:gsub("\n", ("\n%s "):format(self.properties.formattedName))
+					local formattedName = self.properties.formattedName.." - "
+
+					message = ("%s%s"):format(
+						formattedName,
+						message:gsub("\n", ("\n%s"):format(formattedName))
 					)
 
 					debug.log(message)
@@ -1110,7 +1119,7 @@ AuroraFramework.services.debuggerService.createLogger = function(name, shouldSen
 		{
 			name = name,
 			sendToChat = shouldSendInChat or false,
-			formattedName = ("(%s | Logger %s)"):format(
+			formattedName = ("\"%s\" | %s (Logger)"):format(
 				AuroraFramework.attributes.AddonData.name,
 				name
 			)
