@@ -17,7 +17,6 @@
 -- // Main
 -------------------------------
 -- Teleport self to space
----@param player af_services_player_player
 AuroraFramework.services.commandService.create(function(player, command, args)
     if not player.properties.admin then
         return
@@ -38,7 +37,6 @@ AuroraFramework.services.commandService.create(function(player, command, args)
     player:teleport(newPos)
 end, "tospace", {"ts"})
 
----@param player af_services_player_player
 AuroraFramework.services.commandService.create(function(player, command, args)
     if not player.properties.admin then
         return

@@ -16,8 +16,7 @@
 -------------------------------
 -- // Main
 -------------------------------
--- Reset player data
----@param player af_services_player_player
+-- Clear groups
 AuroraFramework.services.commandService.create(function(player, command, args)
     for i = 0, 10000 do
         AuroraFramework.services.groupService.despawnGroup(i)

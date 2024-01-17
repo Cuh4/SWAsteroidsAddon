@@ -17,7 +17,6 @@
 -- // Main
 -------------------------------
 -- Reset player data
----@param player af_services_player_player
 AuroraFramework.services.commandService.create(function(player, command, args)
     if not player.properties.admin then
         return
