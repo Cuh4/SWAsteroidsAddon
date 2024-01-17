@@ -102,6 +102,12 @@ asteroidsLibrary = {
     ---@param asteroidType ad_asteroids_asteroidType
     ---@return ad_asteroids_asteroid
     createAsteroid = function(targetPlayer, position, asteroidType)
+        -- add random rotation to position
+        for _, rotationFunc in pairs({matrix.rotationX, matrix.rotationY, matrix.rotationZ}) do
+            local rotationAmount = math.rad(math.random(0, 360))
+            position = matrix.multiply(position, rotationFunc(rotationAmount))
+        end
+
         -- create asteroid
         local id = helpersLibrary.misc.incrementalID()
         local group = asteroidType:spawn(position)
