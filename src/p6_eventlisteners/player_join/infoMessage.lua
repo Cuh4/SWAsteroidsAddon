@@ -19,7 +19,7 @@
 -- Show information when a player joins
 ---@param player af_services_player_player
 AuroraFramework.services.playerService.events.onJoin:connect(function(player)
-    AuroraFramework.services.timerService.delay.create(0.1, function() -- wait a little because messages don't show if they are sent right when a player joins
+    AuroraFramework.services.timerService.delay.create(1, function() -- wait a little because messages don't show if they are sent right when a player joins
         -- Send credit message
         helpersLibrary.chat.send(
             table.concat({
