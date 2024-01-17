@@ -31,20 +31,15 @@ addonConfiguration = {
         },
 
         requiredDLCs = {
-            space = {
+            {
                 name = "Space",
                 enabled = server.dlcSpace()
             },
 
-            arid = {
-                name = "Industrial Frontier",
-                enabled = server.dlcArid()
-            },
-
-            weapons = {
-                name = "Weapons",
-                enabled = server.dlcWeapons()
-            }
+            -- {
+            --     name = "Industrial Frontier",
+            --     enabled = server.dlcArid()
+            -- }
         }
     }
 }
