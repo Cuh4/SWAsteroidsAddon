@@ -25,14 +25,22 @@ g_savedata.userAddonConfig = {
 }
 
 -------------------------------
+-- // Functions
+-------------------------------
+-- Set ups the asteroid library's configuration from g_savedata.userAddonConfig
+setupAsteroidLibConfig = function()
+    asteroidsLibrary.configuration.asteroidDensity = g_savedata.userAddonConfig.asteroidDensity
+    asteroidsLibrary.configuration.despawnDistance = g_savedata.userAddonConfig.despawnDistance
+    asteroidsLibrary.configuration.asteroidSpawnDistance = g_savedata.userAddonConfig.spawnDistance
+    asteroidsLibrary.configuration.asteroidSpawnTravelDistance = g_savedata.userAddonConfig.travelDistance
+end
+
+-------------------------------
 -- // Main
 -------------------------------
 ---------- // Setup
--- User Addon Config
-asteroidsLibrary.configuration.asteroidDensity = g_savedata.userAddonConfig.asteroidDensity
-asteroidsLibrary.configuration.despawnDistance = g_savedata.userAddonConfig.despawnDistance
-asteroidsLibrary.configuration.asteroidSpawnDistance = g_savedata.userAddonConfig.spawnDistance
-asteroidsLibrary.configuration.asteroidSpawnTravelDistance = g_savedata.userAddonConfig.travelDistance
+-- Set up asteroid library configuration from user's desired settings
+setupAsteroidLibConfig()
 
 ---------- // Create asteroid types
 -- // Small
