@@ -73,3 +73,4 @@ asteroidsLibrary.types.createType(
 
 ---------- // Initialize libraries
 asteroidsLibrary.initialize()
+disposablesLibrary.initialize()
