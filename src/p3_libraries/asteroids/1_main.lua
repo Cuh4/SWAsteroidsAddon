@@ -161,6 +161,7 @@ asteroidsLibrary = {
         end
 
         -- despawn the asteroid
+        asteroid.properties.group.properties.primaryVehicle:explode(1, false)
         asteroid.properties.group:despawn()
 
         -- remove it from addon
