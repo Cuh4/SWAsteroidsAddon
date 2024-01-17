@@ -19,10 +19,11 @@
 helpersLibrary.chat = {
     ---@param message string
     ---@param targetPlayer af_services_player_player|nil
-    send = function(message, targetPlayer)
+    ---@param ... any
+    send = function(message, targetPlayer, ...)
         return AuroraFramework.services.chatService.sendMessage(
             ("[%s]"):format(addonConfiguration.information.addonName),
-            message,
+            ... and message:format(...) or message,
             targetPlayer
         )
     end
