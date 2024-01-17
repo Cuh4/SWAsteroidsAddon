@@ -89,8 +89,10 @@ asteroidsLibrary.types.createType(
 )
 
 ---------- // Attach debug code to libraries
-attachDebugCodeMultiple(disposablesLibrary, mainLogger)
-attachDebugCodeMultiple(asteroidsLibrary, mainLogger)
+if addonConfiguration.dev.debugEnabled then -- debug code can slow down the addon a bit, so its important we only mount debug code onto functions if debug mode is enabled
+    -- attachDebugCodeMultiple(disposablesLibrary, mainLogger)
+    -- attachDebugCodeMultiple(asteroidsLibrary, mainLogger)
+end
 
 ---------- // Initialize libraries
 asteroidsLibrary.initialize()
