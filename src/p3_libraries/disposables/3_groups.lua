@@ -24,7 +24,9 @@ disposablesLibrary.groups = {
     end
 }
 
----@param id integer
-disposablesLibrary.internal.setup("groups", function(id)
-    AuroraFramework.services.groupService.despawnGroup(id)
+AuroraFramework.ready:connect(function()
+    ---@param id integer
+    disposablesLibrary.internal.setup("groups", function(id)
+        AuroraFramework.services.groupService.despawnGroup(id)
+    end)
 end)

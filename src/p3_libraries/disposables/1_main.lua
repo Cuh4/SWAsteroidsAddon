@@ -27,7 +27,9 @@ disposablesLibrary = {
     initialize = function()
         -- when the framework is ready, dispose of everything
         AuroraFramework.ready:connect(function()
-            disposablesLibrary.dispose:fire()
+            AuroraFramework.services.timerService.delay.create(0, function()
+                disposablesLibrary.dispose:fire()
+            end)
         end)
     end,
 

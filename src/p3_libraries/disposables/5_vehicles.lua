@@ -24,7 +24,9 @@ disposablesLibrary.vehicles = {
     end
 }
 
----@param id integer
-disposablesLibrary.internal.setup("vehicles", function(id)
-    AuroraFramework.services.vehicleService.despawnVehicle(id)
+AuroraFramework.ready:connect(function()
+    ---@param id integer
+    disposablesLibrary.internal.setup("vehicles", function(id)
+        AuroraFramework.services.vehicleService.despawnVehicle(id)
+    end)
 end)

@@ -24,7 +24,9 @@ disposablesLibrary.objects = {
     end
 }
 
----@param id integer
-disposablesLibrary.internal.setup("objects", function(id)
-    server.despawnObject(id, true)
+AuroraFramework.ready:connect(function()
+    ---@param id integer
+    disposablesLibrary.internal.setup("objects", function(id)
+        server.despawnObject(id, true)
+    end)
 end)
