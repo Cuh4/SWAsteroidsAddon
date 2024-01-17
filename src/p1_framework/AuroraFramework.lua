@@ -1088,7 +1088,11 @@ AuroraFramework.services.debuggerService.createLogger = function(name, shouldSen
 				if type(message) == "table" then
 					message = "\n"..AuroraFramework.libraries.miscellaneous.tableToString(message)
 				else
-					message = tostring(message):format(...)
+					message = tostring(message)
+
+					if ... then
+						message = message:format(...)
+					end
 				end
 
 				-- send the messages
