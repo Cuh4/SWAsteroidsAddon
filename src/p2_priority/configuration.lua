@@ -46,5 +46,9 @@ addonConfiguration = {
             --     enabled = AuroraFramework.attributes.WeaponsEnabled
             -- }
         }
+    },
+
+    dev = {
+        debugEnabled = false
     }
 }
