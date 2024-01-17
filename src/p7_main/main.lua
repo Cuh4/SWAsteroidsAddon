@@ -71,6 +71,9 @@ asteroidsLibrary.types.createType(
     5
 )
 
+---------- // Attach debug code to libraries
+AuroraFramework.services.debuggerService.attachMultiple(disposablesLibrary, mainLogger)
+
 ---------- // Initialize libraries
 asteroidsLibrary.initialize()
 disposablesLibrary.initialize()
