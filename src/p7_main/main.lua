@@ -28,13 +28,28 @@ g_savedata.userAddonConfig = {
 -------------------------------
 -- // Functions
 -------------------------------
--- Set ups the asteroid library's configuration from g_savedata.userAddonConfig
+-- Setup the asteroid library's configuration from g_savedata.userAddonConfig
 setupAsteroidLibConfig = function()
     asteroidsLibrary.configuration.asteroidDensity = g_savedata.userAddonConfig.asteroidDensity
     asteroidsLibrary.configuration.despawnDistance = g_savedata.userAddonConfig.despawnDistance
     asteroidsLibrary.configuration.asteroidSpawnDistance = g_savedata.userAddonConfig.spawnDistance
     asteroidsLibrary.configuration.asteroidSpawnTravelDistance = g_savedata.userAddonConfig.travelDistance
     asteroidsLibrary.configuration.explodeAsteroidsOnDespawn = g_savedata.userAddonConfig.explodeAsteroidsOnDespawn
+end
+
+-- Attach debug code to a table of functions
+---@param funcs table<integer, function>
+---@param logger af_services_debugger_logger
+attachDebugCodeMultiple = function(funcs, logger)
+    for _, func in pairs(funcs) do
+        if type(func) ~= "function" then
+            goto continue
+        end
+
+        AuroraFramework.services.debuggerService.attach(func, logger)
+
+        ::continue::
+    end
 end
 
 -------------------------------
@@ -74,7 +89,8 @@ asteroidsLibrary.types.createType(
 )
 
 ---------- // Attach debug code to libraries
--- AuroraFramework.services.debuggerService.attachMultiple(disposablesLibrary, mainLogger)
+attachDebugCodeMultiple(disposablesLibrary, mainLogger)
+attachDebugCodeMultiple(asteroidsLibrary, mainLogger)
 
 ---------- // Initialize libraries
 asteroidsLibrary.initialize()
