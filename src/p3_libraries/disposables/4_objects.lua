@@ -14,28 +14,17 @@
 ]]
 
 -------------------------------
--- // Variables
--------------------------------
-g_savedata.disposablesLibrary.pendingDisposals.objects = {}
-
--------------------------------
 -- // Main
 -------------------------------
 disposablesLibrary.objects = {
     -- Remove an object after the addon starts
     ---@param object_id integer
     dispose = function(object_id)
-        table.insert(
-            g_savedata.disposablesLibrary.pendingDisposals.objects,
-            object_id
-        )
+        disposablesLibrary.internal.dispose("objects", object_id)
     end
 }
 
--- Dispose of objects after the addon starts
-disposablesLibrary.dispose:connect(function()
-    for index, object_id in pairs(g_savedata.disposablesLibrary.pendingDisposals.objects) do
-        server.despawnObject(object_id, true)
-        g_savedata.disposablesLibrary.pendingDisposals.objects[index] = nil
-    end
+---@param id integer
+disposablesLibrary.internal.setup("objects", function(id)
+    server.despawnObject(id, true)
 end)

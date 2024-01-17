@@ -14,28 +14,17 @@
 ]]
 
 -------------------------------
--- // Variables
--------------------------------
-g_savedata.disposablesLibrary.pendingDisposals.vehicles = {}
-
--------------------------------
 -- // Main
 -------------------------------
 disposablesLibrary.vehicles = {
     -- Remove a vehicle after the addon starts
     ---@param vehicle af_services_vehicle_vehicle
     dispose = function(vehicle)
-        table.insert(
-            g_savedata.disposablesLibrary.pendingDisposals.vehicles,
-            vehicle.properties.vehicle_id
-        )
+        disposablesLibrary.internal.dispose("vehicles", vehicle.properties.group_id)
     end
 }
 
--- Dispose of vehicles after the addon starts
-disposablesLibrary.dispose:connect(function()
-    for index, vehicle_id in pairs(g_savedata.disposablesLibrary.pendingDisposals.vehicles) do
-        AuroraFramework.services.vehicleService.despawnVehicle(vehicle_id)
-        g_savedata.disposablesLibrary.pendingDisposals.vehicles[index] = nil
-    end
+---@param id integer
+disposablesLibrary.internal.setup("vehicles", function(id)
+    AuroraFramework.services.vehicleService.despawnVehicle(id)
 end)

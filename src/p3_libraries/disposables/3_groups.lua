@@ -14,28 +14,17 @@
 ]]
 
 -------------------------------
--- // Variables
--------------------------------
-g_savedata.disposablesLibrary.pendingDisposals.groups = {}
-
--------------------------------
 -- // Main
 -------------------------------
 disposablesLibrary.groups = {
     -- Remove a group after the addon starts
     ---@param group af_services_group_group
     dispose = function(group)
-        table.insert(
-            g_savedata.disposablesLibrary.pendingDisposals.groups,
-            group.properties.group_id
-        )
+        disposablesLibrary.internal.dispose("groups", group.properties.group_id)
     end
 }
 
--- Dispose of groups after the addon starts
-disposablesLibrary.dispose:connect(function()
-    for index, group_id in pairs(g_savedata.disposablesLibrary.pendingDisposals.groups) do
-        AuroraFramework.services.groupService.despawnGroup(group_id)
-        g_savedata.disposablesLibrary.pendingDisposals.groups[index] = nil
-    end
+---@param id integer
+disposablesLibrary.internal.setup("groups", function(id)
+    AuroraFramework.services.groupService.despawnGroup(id)
 end)
