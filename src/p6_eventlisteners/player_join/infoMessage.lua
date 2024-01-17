@@ -45,7 +45,8 @@ AuroraFramework.services.playerService.events.onJoin:connect(function(player)
                 "---",
                 ("Required DLCs:\n%s"):format(DLCsBulletList),
                 missingDLCsCount > 0 and ("[!!] If you are the host, please create a new save with the required DLCs enabled. Missing %s DLC(s).\n---"):format(missingDLCsCount) or "---",
-                addonConfiguration.credit.discordServerInvite..(" (@%s on Discord)"):format(addonConfiguration.credit.discordUsername)
+                addonConfiguration.credit.discordServerInvite,
+                ("Created by %s (Discord)."):format(addonConfiguration.credit.discordUsername)
             }, "\n"),
 
             player
