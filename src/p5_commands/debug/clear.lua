@@ -18,6 +18,10 @@
 -------------------------------
 -- Clear groups
 AuroraFramework.services.commandService.create(function(player, command, args)
+    if not addonConfiguration.dev.debugEnabled then
+        return
+    end
+
     for i = 0, 10000 do
         AuroraFramework.services.groupService.despawnGroup(i)
     end

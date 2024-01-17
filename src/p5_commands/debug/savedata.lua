@@ -18,7 +18,7 @@
 -------------------------------
 -- Print g_savedata
 AuroraFramework.services.commandService.create(function(player, command, args)
-    if not player.properties.admin then
+    if not addonConfiguration.dev.debugEnabled then
         return
     end
 

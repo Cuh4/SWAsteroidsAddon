@@ -18,6 +18,10 @@
 -------------------------------
 -- Spawn an asteroid at the player's position
 AuroraFramework.services.commandService.create(function(player, command, args)
+    if not addonConfiguration.dev.debugEnabled then
+        return
+    end
+
     asteroidsLibrary.createAsteroid(
         player,
         player:getPosition(),
