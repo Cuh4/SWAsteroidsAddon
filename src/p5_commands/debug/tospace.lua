@@ -23,16 +23,7 @@ AuroraFramework.services.commandService.create(function(player, command, args)
     end
 
     local pos = player:getPosition()
-    local newPos = pos
-    newPos[14] = 192000
+    pos[14] = 300000
 
-    for _, group in pairs(AuroraFramework.services.groupService.getAllGroups()) do
-        if not group.properties.addonSpawned then
-            if matrix.distance(group:getPosition(), pos) < 100 then
-                group:teleport(newPos)
-            end
-        end
-    end
-
-    player:teleport(newPos)
+    player:teleport(pos)
 end, "tospace", {"ts"})
