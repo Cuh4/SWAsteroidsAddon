@@ -19,10 +19,10 @@ P.S: Most of the important addon code is in `src/p3_libraries/asteroids`.
 
 ## 💻 | Setup
 ### 😎 | Simple
-TODO
-1) [Subscribe to the addon from the Steam workshop.](https://www.add-link.com)
+1) [Subscribe to the addon from the Steam workshop.](https://steamcommunity.com/sharedfiles/filedetails/?id=3141592924)
 2) Create a new save, but before loading it, enable this addon and the Space DLC.
-3) Load into the save and have fun with the addon.
+3) When enabling the addon, you will see a cog icon. Click it to open up the options menu, then configure the addon to however you desire. The default options are recommended.
+4) Load into the save and have fun with the addon.
 
 ### 🤓 | Advanced
 1) Run `git clone "https://github.com/Cuh4/SWAsteroidsAddon.git"`
