@@ -97,3 +97,4 @@ end
 ---------- // Initialize libraries
 asteroidsLibrary.initialize()
 disposablesLibrary.initialize()
+tagsLibrary.initialize()
