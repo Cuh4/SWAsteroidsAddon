@@ -14,7 +14,7 @@ Feel free to `git clone`, or even contribute.
 P.S: Most of the important addon code is in `src/p3_libraries/asteroids`.
 
 ## ❓ | Requirements
-- **Python 3.11+**
+- **Python 3.12+**
 - **Stormworks: Build and Rescue** (game)
 
 ## 💻 | Setup
